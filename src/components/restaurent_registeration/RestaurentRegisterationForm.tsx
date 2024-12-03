@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
+import { BACKEND_API_ENDPOINT } from '../../constants/GlobalConstant';
+
 
 import axios from 'axios';
 
@@ -42,10 +44,11 @@ function RestaurentRegisterationForm() {
         try {
             console.log("hi");
             axios
-                .post('http://localhost:8001/register/restaurent', formData, {
+                .post(BACKEND_API_ENDPOINT + '/register/restaurent', formData, {
                     headers: {
-                      'Content-Type': 'application/json',
-                    }})
+                        'Content-Type': 'application/json',
+                    }
+                })
                 .then((response: any) => {
                     console.log("hi2");
                     setShowSuccessMessage(true);
@@ -85,8 +88,8 @@ function RestaurentRegisterationForm() {
                         />
                     </div>
                     <div>
-                            {showSuccessMessage && "Restaurent got registered successfully"}
-                            {showErrorMessage && "Error while restering the restaurent, please retry after some time"}
+                        {showSuccessMessage && "Restaurent got registered successfully"}
+                        {showErrorMessage && "Error while restering the restaurent, please retry after some time"}
                     </div>
                     <div className="modal-body">
                         <form onSubmit={handleSubmit}>

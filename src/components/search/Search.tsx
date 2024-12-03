@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Restaurent } from '../restaurent_registeration/RestaurentRegisterationForm';
 import axios from 'axios';
-import "./index.css"; // Import custom CSS file
+import "./index.css";
+import { BACKEND_API_ENDPOINT } from '../../constants/GlobalConstant'
+
 
 function Search() {
     const location = useLocation();
@@ -14,7 +16,7 @@ function Search() {
     useEffect(() => {
         console.log(search_key);
         console.log(search_value);
-        axios.get('http://localhost:8001/search/restaurent?key=' + search_key + '&value=' + search_value,
+        axios.get(BACKEND_API_ENDPOINT + '/search/restaurent?key=' + search_key + '&value=' + search_value,
             {
                 headers: {
                     'Content-Type': 'application/json',

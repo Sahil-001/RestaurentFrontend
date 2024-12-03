@@ -1,0 +1,1 @@
+export const BACKEND_API_ENDPOINT: string = 'https://restaurentbackend-bx7u.onrender.com';

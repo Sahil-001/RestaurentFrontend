@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BACKEND_API_ENDPOINT } from '../../constants/GlobalConstant'
 
 
 export interface Booking {
@@ -44,7 +45,7 @@ const RestaurentBooking = () => {
         try {
             console.log("hi");
             axios
-                .post('http://localhost:8001/restaurent/' + formData.restaurentName + "/book", formData, {
+                .post(BACKEND_API_ENDPOINT + '/restaurent/' + formData.restaurentName + "/book", formData, {
                     headers: {
                         'Content-Type': 'application/json',
                     }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
 import axios from 'axios';
+import { BACKEND_API_ENDPOINT } from '../../constants/GlobalConstant'
 
 export interface RegisterSlotForm {
     restaurentName: string;
@@ -40,7 +41,7 @@ const RegisterSlot = () => {
         try {
             console.log("hi");
             axios
-                .put('http://localhost:8001/restaurent/' + formData.restaurentName + "/slot", formData, {
+                .put(BACKEND_API_ENDPOINT + '/restaurent/' + formData.restaurentName + "/slot", formData, {
                     headers: {
                         'Content-Type': 'application/json',
                     }
