@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { BACKEND_API_ENDPOINT } from '../../constants/GlobalConstant'
 
@@ -37,9 +37,7 @@ const RegisterSlot = () => {
     // Handle form submission
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(formData);
         try {
-            console.log("hi");
             axios
                 .put(BACKEND_API_ENDPOINT + '/restaurent/' + formData.restaurentName + "/slot", formData, {
                     headers: {
@@ -47,7 +45,6 @@ const RegisterSlot = () => {
                     }
                 })
                 .then((response: any) => {
-                    console.log("hi2");
                     setShowSuccessMessage(true);
                     navigate('/');
                 })
@@ -60,7 +57,6 @@ const RegisterSlot = () => {
             console.log(ex)
             setShowErrorMessage(true);
         }
-        console.log('Form Data Submitted:', formData);
         // Add form submission logic here (e.g., API call)
     };
 

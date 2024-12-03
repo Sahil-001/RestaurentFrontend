@@ -20,7 +20,7 @@ function RestaurentRegisterationForm() {
         area: '',
         foodType: '',
     });
-    const [showModal, setShowModal] = useState<boolean>(true); // Modal visibility state
+    const [showModal, setShowModal] = useState<boolean>(true);
     const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
     const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
 
@@ -34,7 +34,6 @@ function RestaurentRegisterationForm() {
     };
 
     const handleSelectChange = (e: any) => {
-        // console.log(e.target.value);
         setFormData({ ...formData, foodType: e.target.value });
     };
 
@@ -42,7 +41,6 @@ function RestaurentRegisterationForm() {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         try {
-            console.log("hi");
             axios
                 .post(BACKEND_API_ENDPOINT + '/register/restaurent', formData, {
                     headers: {
@@ -50,20 +48,16 @@ function RestaurentRegisterationForm() {
                     }
                 })
                 .then((response: any) => {
-                    console.log("hi2");
                     setShowSuccessMessage(true);
                     navigate('/');
                 })
                 .catch((err) => {
-                    console.log(err)
                     setShowErrorMessage(true);
                 });
         }
         catch (ex: any) {
-            console.log(ex)
             setShowErrorMessage(true);
         }
-        console.log('Form Data Submitted:', formData);
         // Add form submission logic here (e.g., API call)
     };
 

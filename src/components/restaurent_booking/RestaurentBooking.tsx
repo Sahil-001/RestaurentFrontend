@@ -9,7 +9,7 @@ export interface Booking {
     restaurentName: string;
     date: string;
     startTime: string;
-    memberCount : number;
+    memberCount: number;
 }
 
 const RestaurentBooking = () => {
@@ -41,11 +41,8 @@ const RestaurentBooking = () => {
     // Handle form submission
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(formData);
         try {
-            console.log("hi");
-            axios
-                .post(BACKEND_API_ENDPOINT + '/restaurent/' + formData.restaurentName + "/book", formData, {
+            axios.post(BACKEND_API_ENDPOINT + '/restaurent/' + formData.restaurentName + "/book", formData, {
                     headers: {
                         'Content-Type': 'application/json',
                     }
@@ -55,15 +52,12 @@ const RestaurentBooking = () => {
                     navigate('/');
                 })
                 .catch((err) => {
-                    console.log(err)
                     setShowErrorMessage(true);
                 });
         }
         catch (ex: any) {
-            console.log(ex)
             setShowErrorMessage(true);
         }
-        console.log('Form Data Submitted:', formData);
         // Add form submission logic here (e.g., API call)
     };
 
