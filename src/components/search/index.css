@@ -1,0 +1,32 @@
+.clickable-list {
+    list-style-type: none;
+    padding: 0;
+    width: 200px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Individual list items */
+  .list-item {
+    padding: 12px;
+    margin: 5px 0;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    cursor: pointer; /* Makes it look clickable */
+  }
+  
+  /* Hover effect */
+  .list-item:hover {
+    background-color: #e2e6ea; /* Light gray background on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  }
+  
+  /* Active or selected item */
+  .list-item.active {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border-color: #007bff; /* Blue border */
+  }
