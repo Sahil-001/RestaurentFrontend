@@ -2,23 +2,24 @@
 FROM node:18 AS front
 
 # Set the working directory for the frontend
-WORKDIR /app/frontend
+WORKDIR /app
 
 # Copy frontend package files and install dependencies
-COPY frontend/restaurent_app/package*.json ./
+COPY package*.json ./
 RUN npm install
 
 # Copy the entire frontend source code
-COPY frontend/restaurent_app/ ./
-
-# Set the environment variable for the React app's port
-ENV PORT=8000
+COPY . .
 
 # Build the React app
 RUN npm run build
 
+# Set the environment variable for the React app's port
+ENV PORT=8000
+
 # Expose the port for React app to run (port 8000)
 EXPOSE 8000
 
-# Command to run the React app
-CMD ["npm", "start"]
+# Serve the React build using a simple HTTP server
+RUN npm install -g serve
+CMD ["serve", "-s", "build", "-l", "8000"]
