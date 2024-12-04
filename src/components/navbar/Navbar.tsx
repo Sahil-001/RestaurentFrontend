@@ -16,7 +16,6 @@ const Navbar = () => {
         navigate('/restaurent/slots/register', {});
     };
     const searchClickHandler = (event: any) => {
-        event.preventDefault();
         let key: string;
         let value: string;
         if (searchValue.includes(':')) {
